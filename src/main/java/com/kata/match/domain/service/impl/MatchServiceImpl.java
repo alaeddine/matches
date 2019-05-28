@@ -38,42 +38,66 @@ public class MatchServiceImpl implements MatchService {
             throw new IllegalArgumentException("not expected player. player should be PLAYER1 OR PLAYER2");
         }
 
-        PlayerScoreEntity playerScoreEntity;
+        PlayerScoreEntity currentScoreEntity;
+        PlayerScoreEntity otherScoreEntity;
         PlayerEnumEntity currentPlayer;
         if (player == PlayerEnumEntity.PLAYER1) {
-            playerScoreEntity = matchEntity.player1Score();
+            currentScoreEntity = matchEntity.player1Score();
+            otherScoreEntity = matchEntity.player2Score();
             currentPlayer = PlayerEnumEntity.PLAYER1;
         } else {
-            playerScoreEntity = matchEntity.player2Score();
+            currentScoreEntity = matchEntity.player2Score();
+            otherScoreEntity = matchEntity.player1Score();
             currentPlayer = PlayerEnumEntity.PLAYER2;
         }
 
-        Boolean isWinner = false;
-        switch (playerScoreEntity.gameScore()) {
+        switch (currentScoreEntity.gameScore()) {
         case ZERO:
-            playerScoreEntity.gameScore(GameScoreEnumEntity.FIFTEEN);
+            currentScoreEntity.gameScore(GameScoreEnumEntity.FIFTEEN);
             break;
         case FIFTEEN:
-            playerScoreEntity.gameScore(GameScoreEnumEntity.THIRTY);
+            currentScoreEntity.gameScore(GameScoreEnumEntity.THIRTY);
             break;
         case THIRTY:
-            playerScoreEntity.gameScore(GameScoreEnumEntity.FORTY);
+            currentScoreEntity.gameScore(GameScoreEnumEntity.FORTY);
             break;
         case FORTY:
-            playerScoreEntity.gameScore(GameScoreEnumEntity.ZERO);
-            isWinner = true;
-        }
-
-        if (isWinner) {
-            matchEntity.status(MatchStatusEnumEntity.FINISHED);
-            matchEntity.player1Score()
-                    .gameScore(GameScoreEnumEntity.ZERO);
-            matchEntity.player2Score()
-                    .gameScore(GameScoreEnumEntity.ZERO);
-            matchEntity.winner(currentPlayer);
+            manageFortyState(currentScoreEntity, otherScoreEntity, matchEntity, currentPlayer);
+            break;
+        case DEUCE:
+            manageDeuceState(currentScoreEntity, otherScoreEntity);
+            break;
+        case ADV:
+            setMatchFinishedState(matchEntity, currentPlayer);
         }
 
         return matchEntity;
+    }
+
+    private void setMatchFinishedState(final MatchEntity matchEntity, final PlayerEnumEntity currentPlayer) {
+        matchEntity.player1Score()
+                .gameScore(GameScoreEnumEntity.ZERO);
+        matchEntity.player2Score()
+                .gameScore(GameScoreEnumEntity.ZERO);
+        matchEntity.status(MatchStatusEnumEntity.FINISHED);
+        matchEntity.winner(currentPlayer);
+    }
+
+    private void manageFortyState(PlayerScoreEntity currentScoreEntity, PlayerScoreEntity otherScoreEntity,
+            MatchEntity matchEntity, PlayerEnumEntity currentPlayer) {
+        if (otherScoreEntity.gameScore() == GameScoreEnumEntity.ADV) {
+            currentScoreEntity.gameScore(GameScoreEnumEntity.DEUCE);
+            otherScoreEntity.gameScore(GameScoreEnumEntity.DEUCE);
+        } else if (otherScoreEntity.gameScore() == GameScoreEnumEntity.FORTY) {
+            currentScoreEntity.gameScore(GameScoreEnumEntity.ADV);
+        } else {// cases 0,15,30 => i'am a winner
+            setMatchFinishedState(matchEntity, currentPlayer);
+        }
+    }
+
+    private void manageDeuceState(PlayerScoreEntity currentScoreEntity, PlayerScoreEntity otherScoreEntity) {
+        currentScoreEntity.gameScore(GameScoreEnumEntity.ADV);
+        otherScoreEntity.gameScore(GameScoreEnumEntity.FORTY);
     }
 
     @Override

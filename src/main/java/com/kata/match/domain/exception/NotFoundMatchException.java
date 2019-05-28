@@ -2,6 +2,8 @@ package com.kata.match.domain.exception;
 
 public class NotFoundMatchException extends RuntimeException {
 
+    private static final long serialVersionUID = -5365630135856068164L;
+
     public NotFoundMatchException(String message) {
         super(message);
     }

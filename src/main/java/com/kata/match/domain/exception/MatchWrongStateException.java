@@ -6,6 +6,8 @@ package com.kata.match.domain.exception;
  */
 public class MatchWrongStateException extends RuntimeException {
 
+    private static final long serialVersionUID = -5365630138856868164L;
+
     public MatchWrongStateException(String message) {
         super(message);
     }
