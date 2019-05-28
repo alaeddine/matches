@@ -1,7 +1,7 @@
 # matches
 project to manage a simple tennis match score with a unique set.
 
-#technical info
+# technical info
 web tier : JAX-RS 2.2 spec is used with the implementation of jboss RESTEasy
 database : liquibase is used to manage database schema changes.
            H2 is used as memory database support
