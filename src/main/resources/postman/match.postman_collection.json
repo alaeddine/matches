@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "7c882455-3711-437a-84b5-6de0b737aedb",
+		"name": "match",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "start match 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/tennis/matches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tennis",
+						"matches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "player1 win piont",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/tennis/matches/1/players/PLAYER1/goal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tennis",
+						"matches",
+						"1",
+						"players",
+						"PLAYER1",
+						"goal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "player2 win point",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/tennis/matches/1/players/PLAYER2/goal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tennis",
+						"matches",
+						"1",
+						"players",
+						"PLAYER2",
+						"goal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get match score",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/tennis/matches/1/score",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tennis",
+						"matches",
+						"1",
+						"score"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get match status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tennis/matches/1/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tennis",
+						"matches",
+						"1",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get match winner",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tennis/matches/1/winner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tennis",
+						"matches",
+						"1",
+						"winner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ping",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/tennis/matches",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tennis",
+						"matches"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
