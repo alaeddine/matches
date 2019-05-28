@@ -2,18 +2,20 @@
 project to manage a simple tennis match score with a unique set.
 
 # technical info
-- web tier : JAX-RS 2.2 spec is used with the implementation of jboss RESTEasy
+- web tier :  jboss RESTEasy library is used as implimentation for the JAX-RS 2.2 spec
 - database : liquibase is used to manage database schema changes.
            H2 is used as memory database support
 - unit test: mockito and Spring unit test are used
 - Spring boot:  is used to bootstrap the project
 
 # Controller
-MatchController : resource controller
+- MatchController : resource controller
 
 # env 
-port: 8080
-context : tennis
+- port: 8080
+- context : tennis
+- app ping uri : GET http://localhost:8080/tennis/matches 
+- h2 management console uri : http;//localhost:8080/h2-console/ (matchdb,sa, )
 
 
 # test case
