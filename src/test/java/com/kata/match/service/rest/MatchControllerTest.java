@@ -75,7 +75,9 @@ public class MatchControllerTest {
                 .body("matchScore.player2Score.gameScore", equalTo(matchTestUtil.matchZeroVSZeroScoreDto()
                         .matchScore()
                         .player1Score()
-                        .gameScore()));
+                        .gameScore()))
+                .body("deuceActivated", equalTo(matchTestUtil.matchZeroVSZeroScoreDto()
+                        .deuceActivated()));
     }
 
     /**

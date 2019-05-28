@@ -29,6 +29,8 @@ public class MatchMapper {
                 .player2(entity.player2())
                 .matchScore(matchScoreMapper.fromEntity(entity))
                 .status(matchStatusEnumMapper.fromEntity(entity.status()))
+                .deuceActivated(entity.isDeuce())
+
                 .build();
     }
 

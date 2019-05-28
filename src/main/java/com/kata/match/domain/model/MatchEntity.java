@@ -54,4 +54,8 @@ public class MatchEntity {
     })
     private PlayerScoreEntity player2Score = PlayerScoreEntity.builder()
             .build();
+
+    @Column(name = "IS_DEUCE")
+    @Default
+    private Boolean isDeuce = false;
 }

@@ -26,4 +26,6 @@ public class Match {
     private String player1;
     @JsonProperty("player2")
     private String player2;
+    @JsonProperty("deuceActivated")
+    private Boolean deuceActivated;
 }

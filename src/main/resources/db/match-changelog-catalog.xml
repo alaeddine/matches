@@ -15,5 +15,11 @@
         <tagDatabase tag="after-init"/>
     </changeSet>
 
+    <include file="match-0.0.2.changelog.xml" relativeToChangelogFile="true"/>
+
+    <changeSet author="ugo" id="0.0.2-tag">
+        <tagDatabase tag="0.0.2" />
+    </changeSet>
+
 </databaseChangeLog>
 
