@@ -4,6 +4,9 @@ import static com.kata.match.api.resource.MatchController.MATCHES_SCORE;
 import static com.kata.match.api.resource.MatchController.MATCHES_STATUS;
 import static com.kata.match.api.resource.MatchController.MATCHES_WINNER;
 import static com.kata.match.api.resource.MatchController.MATCHES_WIN_POINT;
+import static com.kata.match.mocks.MatchTestUtil.GAME_SCORE_FIFTEEN;
+import static com.kata.match.mocks.MatchTestUtil.GAME_SCORE_FORTY;
+import static com.kata.match.mocks.MatchTestUtil.GAME_SCORE_THIRTY;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Matchers.any;
@@ -75,17 +78,15 @@ public class MatchControllerTest {
                 .body("matchScore.player2Score.gameScore", equalTo(matchTestUtil.matchZeroVSZeroScoreDto()
                         .matchScore()
                         .player1Score()
-                        .gameScore()))
-                .body("deuceActivated", equalTo(matchTestUtil.matchZeroVSZeroScoreDto()
-                        .deuceActivated()));
+                        .gameScore()));
     }
 
     /**
-     * when the score is 40/40 and player2 win a point => player2 win
+     * when the score is 15/40 and player2 win a point => player2 win
      */
     @Test
-    public void Should_player2_win_When_score_is_forty_Vs_forty_and_player2_mark_point() {
-        Long newMatchId = matchService.createMatch(matchTestUtil.matchFortyVSFortyScoreEntity())
+    public void Should_player2_win_When_score_is_thirty_forty_and_player2_mark_point() {
+        Long newMatchId = matchService.createMatch(matchTestUtil.matchScoreEntity(GAME_SCORE_FIFTEEN, GAME_SCORE_FORTY))
                 .id();
         given().contentType(ContentType.JSON)
                 .body("{}")
@@ -138,7 +139,7 @@ public class MatchControllerTest {
     @Test
     public void Should_return_PLAYER1_is_winner() {
         //player1 win
-        Long newMatchId = matchService.createMatch(matchTestUtil.matchFortyVSThirtyScoreEntity())
+        Long newMatchId = matchService.createMatch(matchTestUtil.matchScoreEntity(GAME_SCORE_FORTY, GAME_SCORE_THIRTY))
                 .id();
         MatchEntity matchEntity = matchService.winPoint(newMatchId, PlayerEnumEntity.PLAYER1);
 

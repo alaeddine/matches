@@ -2,7 +2,6 @@ package com.kata.match.api.resource;
 
 import static com.kata.match.api.resource.MatchController.MATCHES_PATH;
 
-import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -45,7 +44,7 @@ public interface MatchController {
      */
     @POST
     @ResponseStatus(HttpStatus.CREATED)
-    Match createMatch(@BeanParam CreateMatch createMatch);
+    Match createMatch(CreateMatch createMatch);
 
     /**
      * mark a goal for a player uri: matches/{matchId}/players/{playerId}/goal

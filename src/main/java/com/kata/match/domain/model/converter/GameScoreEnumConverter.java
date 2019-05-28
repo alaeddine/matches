@@ -16,6 +16,10 @@ public class GameScoreEnumConverter implements AttributeConverter<GameScoreEnumE
             return GameScoreEnumEntity.THIRTY.getValue();
         case FORTY:
             return GameScoreEnumEntity.FORTY.getValue();
+        case ADV:
+            return GameScoreEnumEntity.ADV.getValue();
+        case DEUCE:
+            return GameScoreEnumEntity.DEUCE.getValue();
         default:
             throw new IllegalArgumentException("Unknown" + gameScoreEnumEntity);
         }
@@ -32,6 +36,10 @@ public class GameScoreEnumConverter implements AttributeConverter<GameScoreEnumE
             return GameScoreEnumEntity.THIRTY;
         case "40":
             return GameScoreEnumEntity.FORTY;
+        case "ADV":
+            return GameScoreEnumEntity.ADV;
+        case "DEUCE":
+            return GameScoreEnumEntity.DEUCE;
         default:
             throw new IllegalArgumentException("Unknown" + dbData);
         }

@@ -11,15 +11,8 @@
 
     <include file="match-0.0.1.changelog.xml" relativeToChangelogFile="true"/>
 
-    <changeSet author="aladdin" id="after-init-tag">
-        <tagDatabase tag="after-init"/>
+    <changeSet author="aladdin" id="0.0.1-tag">
+        <tagDatabase tag="0.0.1"/>
     </changeSet>
-
-    <include file="match-0.0.2.changelog.xml" relativeToChangelogFile="true"/>
-
-    <changeSet author="ugo" id="0.0.2-tag">
-        <tagDatabase tag="0.0.2" />
-    </changeSet>
-
 </databaseChangeLog>
 
