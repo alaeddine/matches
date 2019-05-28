@@ -1,0 +1,131 @@
+{
+	"variables": [],
+	"info": {
+		"name": "match",
+		"_postman_id": "237afaa6-0e0c-5d39-c37a-0e6c72c609ae",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "new match",
+			"request": {
+				"url": "http://localhost:8080/tennis/matches",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "winpoint",
+			"request": {
+				"url": "http://localhost:8080/tennis/matches/1/players/PLAYER1/goal",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get match score",
+			"request": {
+				"url": "http://localhost:8080/tennis/matches/1/score",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get match status",
+			"request": {
+				"url": "http://localhost:8080/tennis/matches/1/status",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get match winner",
+			"request": {
+				"url": "http://localhost:8080/tennis/matches/1/winner",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ping",
+			"request": {
+				"url": "http://localhost:8080/tennis/matches",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"player1Name\": \"palyer1\",\n    \"player2Name\": \"palyer2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
