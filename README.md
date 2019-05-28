@@ -7,6 +7,7 @@ the use cases one by one, for example :
 - sprint1 uc1 :  release 0.0.1
 - sprint1 uc2 :  release 0.0.2
 
+
 # technical info
 - web tier :  jboss RESTEasy library is used as implimentation for the JAX-RS 2.2 spec
 - database : liquibase is used to manage database schema changes.
