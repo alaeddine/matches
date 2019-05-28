@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+                   logicalFilePath="match-changelog-catalog.xml">
+
+    <changeSet author="aladdin" id="before-init-tag">
+        <tagDatabase tag="before-init"/>
+    </changeSet>
+
+    <include file="match-0.0.1.changelog.xml" relativeToChangelogFile="true"/>
+
+    <changeSet author="aladdin" id="after-init-tag">
+        <tagDatabase tag="after-init"/>
+    </changeSet>
+
+</databaseChangeLog>
+

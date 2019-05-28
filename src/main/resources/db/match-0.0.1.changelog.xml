@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd"
+                   logicalFilePath="match-init.changelog.xml">
+
+    <changeSet id="sp1-uc1-1" author="aladdin">
+        <comment>Creates the hibernate sequence</comment>
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+
+    <changeSet id="sp1-uc1-2" author="aladdin">
+        <createTable tableName="MATCH">
+            <column name="ID" type="BIGINT(19)" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="PLAYER1" type="varchar2"/>
+            <column name="PLAYER2" type="varchar2"/>
+            <column name="P1_GAME_SCORE" type="varchar2"/>
+            <column name="P2_GAME_SCORE" type="varchar2"/>
+            <column name="STATUS" type="varchar2"/>
+            <column name="WINNER" type="varchar2"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
